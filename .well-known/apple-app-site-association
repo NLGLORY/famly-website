@@ -4,8 +4,11 @@
     "details": [
       {
         "appID": "8GVFS2M6D3.com.familytime.connect",
-        "paths": ["/join"]
+        "paths": ["/join", "/join/*", "/join?*"]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["8GVFS2M6D3.com.familytime.connect"]
   }
 }
