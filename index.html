@@ -1,23 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    Alternatively, build your application passing the --base-href parameter
-    specifying the new root path of your web app.
-
-    Fore more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-  -->
-  <base href="/">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famly - Deel Momenten met Familie & Vrienden</title>
+  <meta name="description" content="Deel bijzondere momenten met je familie en vrienden. Maak privé groepen en deel foto's en video's - veilig en alleen voor jullie.">
+
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 
   <!-- PostHog Analytics -->
   <script>
@@ -28,95 +18,1890 @@
     })
   </script>
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Famly">
-
-  
-
-  <meta name="robots" content="noindex" />
-
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Open Graph & SEO tags -->
-  <meta property="og:title" content="Famly" />
-  <meta property="og:description" content="Built with FlutterFlow." />
-  <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
-  <meta name="twitter:title" content="Famly" />
-  <meta name="twitter:description" content="Built with FlutterFlow." />
-  <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Famly - Deel Momenten met Familie & Vrienden">
+  <meta property="og:description" content="Deel bijzondere momenten met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie.">
+  <meta property="og:image" content="https://famlysocial.com/app-icon.png">
+  <meta property="og:url" content="https://famlysocial.com">
+  <meta property="og:type" content="website">
 
-  <title> Famly </title>
-  <meta name="description" content="Built with FlutterFlow." />
-    
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Famly - Deel Momenten met Familie & Vrienden">
+  <meta name="twitter:description" content="Deel bijzondere momenten met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie.">
+  <meta name="twitter:image" content="https://famlysocial.com/app-icon.png">
 
-  <!-- Status Bar color in Safari browser (iOS) and PWA -->
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f4f8">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#1d2428">
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Famly">
+  <link rel="apple-touch-icon" href="app-icon.png">
 
-  <link rel="manifest" href="manifest.json">
-  
+  <!-- Theme -->
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #ffffff;
+      color: #1a1a2e;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==================== HEADER ==================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      color: #4a4a6a;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ec4899;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+    }
+
+    .btn-secondary {
+      background: #f5f5f7;
+      color: #1a1a2e;
+    }
+
+    .btn-secondary:hover {
+      background: #ebebed;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #ec4899;
+      color: #ec4899;
+    }
+
+    .btn-outline:hover {
+      background: #ec4899;
+      color: white;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(180deg, #fdf4ff 0%, #faf5ff 50%, #ffffff 100%);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(236, 72, 153, 0.1);
+      color: #ec4899;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #6b6b8a;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a1a2e;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 14px;
+      transition: all 0.3s;
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .store-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .store-btn .text {
+      text-align: left;
+    }
+
+    .store-btn .text small {
+      font-size: 11px;
+      opacity: 0.8;
+      display: block;
+    }
+
+    .store-btn .text strong {
+      font-size: 16px;
+    }
+
+    .hero-mockups {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      perspective: 1000px;
+    }
+
+    .phone-mockup {
+      width: 220px;
+      height: 450px;
+      background: linear-gradient(145deg, #1a1a2e, #2d2d4a);
+      border-radius: 36px;
+      padding: 8px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+      transform: rotateY(-5deg);
+      transition: transform 0.3s;
+    }
+
+    .phone-mockup:nth-child(2) {
+      transform: scale(1.1) translateY(-20px);
+      z-index: 2;
+    }
+
+    .phone-mockup:nth-child(3) {
+      transform: rotateY(5deg);
+    }
+
+    .phone-mockup:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+
+    .phone-mockup:nth-child(2):hover {
+      transform: scale(1.15) translateY(-30px);
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #2d2d4a 0%, #1a1a2e 100%);
+      border-radius: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-screen::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 24px;
+      background: #0a0a1a;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .phone-screen img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .phone-screen h4 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .phone-screen p {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    .phone-screen.with-screenshot {
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    .phone-screen.with-screenshot img,
+    .phone-screen.with-screenshot h4,
+    .phone-screen.with-screenshot p {
+      display: none;
+    }
+
+    /* ==================== TRUST SECTION ==================== */
+    .trust-section {
+      padding: 60px 0;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .trust-section h3 {
+      font-size: 16px;
+      color: #8b8ba3;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      opacity: 0.5;
+    }
+
+    .trust-logo {
+      width: 120px;
+      height: 40px;
+      background: #d0d0d0;
+      border-radius: 8px;
+    }
+
+    /* ==================== OVERVIEW SECTION ==================== */
+    .overview-section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: rgba(236, 72, 153, 0.1);
+      color: #ec4899;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: #6b6b8a;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .overview-card {
+      background: #f9f9fb;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .overview-card:hover {
+      background: white;
+      border-color: rgba(236, 72, 153, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .overview-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+    }
+
+    .overview-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .overview-card p {
+      font-size: 14px;
+      color: #6b6b8a;
+    }
+
+    /* ==================== RATING SECTION ==================== */
+    .rating-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #fdf4ff, #f5f3ff);
+      text-align: center;
+    }
+
+    .rating-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .rating-stars {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rating-number {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      color: #fbbf24;
+      font-size: 24px;
+    }
+
+    .rating-text {
+      font-size: 16px;
+      color: #6b6b8a;
+    }
+
+    .rating-users {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border: 3px solid white;
+      margin-left: -12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .user-avatar:first-child {
+      margin-left: 0;
+    }
+
+    /* ==================== FEATURES SECTION ==================== */
+    .features-section {
+      padding: 100px 0;
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      margin-bottom: 100px;
+    }
+
+    .feature-row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .feature-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-content {
+      flex: 1;
+    }
+
+    .feature-icon-large {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature-content h3 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .feature-content p {
+      font-size: 16px;
+      color: #6b6b8a;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: #4a4a6a;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      width: 24px;
+      height: 24px;
+      background: rgba(236, 72, 153, 0.1);
+      color: #ec4899;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .feature-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .feature-phone {
+      width: 280px;
+      height: 560px;
+      background: linear-gradient(145deg, #1a1a2e, #2d2d4a);
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #2d2d4a 0%, #1a1a2e 100%);
+      border-radius: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .feature-phone-screen img {
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+    }
+
+    .feature-phone-screen.with-screenshot {
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+
+    .feature-phone-screen.with-screenshot img {
+      display: none;
+    }
+
+    .feature-rating {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .feature-rating-users {
+      display: flex;
+    }
+
+    .feature-rating-users .user-avatar {
+      width: 32px;
+      height: 32px;
+      font-size: 11px;
+    }
+
+    .feature-rating-text {
+      font-size: 13px;
+      color: #6b6b8a;
+    }
+
+    .feature-rating-text strong {
+      color: #1a1a2e;
+    }
+
+    /* ==================== HOW IT WORKS ==================== */
+    .how-it-works {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .step-card {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+
+    .step-phone {
+      width: 180px;
+      height: 360px;
+      background: linear-gradient(145deg, #1a1a2e, #2d2d4a);
+      border-radius: 30px;
+      padding: 6px;
+      margin: 0 auto 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #2d2d4a 0%, #1a1a2e 100%);
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+    }
+
+    .step-card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: #6b6b8a;
+    }
+
+    /* ==================== TESTIMONIALS ==================== */
+    .testimonials-section {
+      padding: 100px 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #f9f9fb;
+      border-radius: 24px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .testimonial-card:hover {
+      background: white;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-5px);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .testimonial-info h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .testimonial-info span {
+      font-size: 13px;
+      color: #8b8ba3;
+    }
+
+    .testimonial-rating {
+      display: flex;
+      gap: 4px;
+      color: #fbbf24;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card p {
+      font-size: 15px;
+      color: #4a4a6a;
+      line-height: 1.7;
+    }
+
+    /* ==================== FAQ ==================== */
+    .faq-section {
+      padding: 100px 0;
+      background: #fafafa;
+    }
+
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .faq-question:hover {
+      color: #ec4899;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      background: #f5f5f7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-answer p {
+      padding: 0 24px 24px;
+      color: #6b6b8a;
+      line-height: 1.7;
+    }
+
+    /* ==================== BLOG ==================== */
+    .blog-section {
+      padding: 100px 0;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .blog-card {
+      background: #f9f9fb;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-image {
+      height: 200px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .blog-content {
+      padding: 24px;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: #8b8ba3;
+      margin-bottom: 12px;
+    }
+
+    .blog-tag {
+      background: rgba(236, 72, 153, 0.1);
+      color: #ec4899;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .blog-card h3 {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .blog-link {
+      display: block;
+      text-align: center;
+    }
+
+    /* ==================== COMMUNITY CTA ==================== */
+    .community-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #1a1a2e, #2d2d4a);
+      color: white;
+      text-align: center;
+    }
+
+    .community-section h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .community-roles {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .role-tag {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* ==================== FINAL CTA ==================== */
+    .final-cta {
+      padding: 100px 0;
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #fdf4ff 100%);
+    }
+
+    .final-cta h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      color: #6b6b8a;
+      margin-bottom: 40px;
+    }
+
+    .final-mockups {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 60px;
+    }
+
+    .final-mockups .phone-mockup {
+      width: 200px;
+      height: 400px;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: #1a1a2e;
+      color: white;
+      padding: 80px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      color: #8b8ba3;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: #ec4899;
+    }
+
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #8b8ba3;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #ec4899;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 14px;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #8b8ba3;
+    }
+
+    .newsletter-form button {
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: #8b8ba3;
+      font-size: 13px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #8b8ba3;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: white;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .header-container nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero-mockups {
+        flex-wrap: wrap;
+      }
+
+      .phone-mockup {
+        width: 180px;
+        height: 360px;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-row {
+        flex-direction: column !important;
+        gap: 40px;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .store-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .hero-mockups {
+        display: none;
+      }
+
+      .section-header h2 {
+        font-size: 32px;
+      }
+
+      .overview-grid,
+      .testimonials-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-content h3 {
+        font-size: 26px;
+      }
+
+      .rating-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .community-section h2,
+      .final-cta h2 {
+        font-size: 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .final-mockups {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-  
-  
-  
-  
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="app-icon.png" alt="Famly">
+        <span>Famly</span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">Hoe het werkt</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:noreply@famlysocial.com">Contact</a>
+      </nav>
+      <a href="#download" class="btn btn-primary">Download App</a>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">✨ #1 App voor Groepen</div>
+      <h1>Deel <span class="gradient">Jullie Momenten</span> Op Eén Veilige Plek</h1>
+      <p class="hero-subtitle">Famly is dé app voor het delen van foto's en video's met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie, zonder reclame of vreemden.</p>
+      <div class="hero-buttons" id="download">
+        <a href="https://apps.apple.com/us/app/famly/id6751124006" class="store-btn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <div class="text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.familytime.connect" class="store-btn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+          </svg>
+          <div class="text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+      <div class="hero-mockups">
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/post1.png');">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/post2.png');">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/post3.png');">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OVERVIEW SECTION ==================== -->
+  <section class="overview-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Overzicht</span>
+        <h2>Waarom Famly?</h2>
+        <p>Speciaal ontworpen voor familie en vrienden die hun mooiste momenten willen bewaren en delen.</p>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-icon">🔒</div>
+          <h3>100% Privé</h3>
+          <p>Geen openbare profielen. Alleen jouw groepsleden kunnen je posts zien.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">📱</div>
+          <h3>Makkelijk te Gebruiken</h3>
+          <p>Intuïtieve interface voor iedereen, van kleinkind tot grootouder.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🌍</div>
+          <h3>Overal Toegang</h3>
+          <p>Beschikbaar op iOS en Android. Altijd en overal bij je herinneringen.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🎬</div>
+          <h3>Foto's & Video's</h3>
+          <p>Deel media in hoge kwaliteit zonder compressie.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">👨‍👩‍👧‍👦</div>
+          <h3>Meerdere Groepen</h3>
+          <p>Maak aparte groepen voor familie, vrienden of andere kringen.</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-icon">🔔</div>
+          <h3>Notificaties</h3>
+          <p>Mis geen enkel moment met slimme meldingen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RATING SECTION ==================== -->
+  <section class="rating-section">
+    <div class="container">
+      <div class="rating-content">
+        <div class="rating-stars">
+          <span class="rating-number">4.9</span>
+          <div>
+            <div class="stars">★★★★★</div>
+            <span class="rating-text">App Store Rating</span>
+          </div>
+        </div>
+        <div class="rating-users">
+          <div class="user-avatar">👨</div>
+          <div class="user-avatar">👩</div>
+          <div class="user-avatar">👴</div>
+          <div class="user-avatar">👧</div>
+          <div class="user-avatar">+</div>
+        </div>
+        <span class="rating-text">Vertrouwd door 1000+ groepen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES SECTION ==================== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Features</span>
+        <h2>Alles wat je nodig hebt</h2>
+        <p>Krachtige functies om jullie momenten te delen en bewaren.</p>
+      </div>
+
+      <!-- Feature 1 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">📸</div>
+          <h3>Foto's & Video's Delen</h3>
+          <p>Deel je mooiste momenten met je groep in hoge kwaliteit. Geen compressie, geen kwaliteitsverlies. Upload foto's en video's direct vanaf je camera of galerij.</p>
+          <ul class="feature-list">
+            <li>Onbeperkt foto's en video's uploaden</li>
+            <li>Hoge kwaliteit behouden</li>
+            <li>Direct delen met je groep</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/post.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">👨‍👩‍👧‍👦</div>
+          <h3>Privé Groepen</h3>
+          <p>Maak aparte groepen voor verschillende kringen. Familie, vrienden, sportclub - iedereen krijgt zijn eigen privé ruimte.</p>
+          <ul class="feature-list">
+            <li>Onbeperkt groepen aanmaken</li>
+            <li>Eenvoudig leden uitnodigen via QR of link</li>
+            <li>Beheer wie wat kan zien</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/mijngroepen.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">💬</div>
+          <h3>Reacties & Likes</h3>
+          <p>Blijf betrokken bij elkaars leven. Reageer op posts, geef likes en blijf verbonden met je groep, ook op afstand.</p>
+          <ul class="feature-list">
+            <li>Reageer met tekst of emoji's</li>
+            <li>Like de posts van groepsleden</li>
+            <li>Ontvang notificaties bij reacties</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/reacties.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">📅</div>
+          <h3>Groepsalbum</h3>
+          <p>Al je herinneringen automatisch georganiseerd per maand. Scroll terug in de tijd en herbeleef jullie mooiste momenten.</p>
+          <ul class="feature-list">
+            <li>Automatisch gesorteerd op datum</li>
+            <li>Makkelijk zoeken en browsen</li>
+            <li>Nooit meer herinneringen kwijt</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/fotoalbum.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">🔒</div>
+          <h3>Privé & Veilig</h3>
+          <p>Jouw herinneringen zijn van jou. Geen advertenties, geen tracking, geen vreemden. Alleen jouw groep.</p>
+          <ul class="feature-list">
+            <li>End-to-end privacy</li>
+            <li>Geen advertenties</li>
+            <li>Geen dataverzameling</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/profielpagina.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-row">
+        <div class="feature-content">
+          <div class="feature-icon-large">🔔</div>
+          <h3>Slimme Notificaties</h3>
+          <p>Mis geen enkel moment. Krijg een melding wanneer er iets nieuws is gedeeld of wanneer iemand reageert.</p>
+          <ul class="feature-list">
+            <li>Push notificaties voor nieuwe posts</li>
+            <li>Meldingen bij reacties en likes</li>
+            <li>Aanpasbare notificatie-instellingen</li>
+          </ul>
+          <a href="#download" class="btn btn-primary">Download App</a>
+          <div class="feature-rating">
+            <div class="feature-rating-users">
+              <div class="user-avatar">👨</div>
+              <div class="user-avatar">👩</div>
+              <div class="user-avatar">👴</div>
+            </div>
+            <span class="feature-rating-text"><strong>4.9/5.0</strong> Beoordeeld door 1000+ gebruikers</span>
+          </div>
+        </div>
+        <div class="feature-image">
+          <div class="feature-phone">
+            <div class="feature-phone-screen with-screenshot" style="background-image: url('screenshots/notificaties.png');">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Hoe het werkt</span>
+        <h2>In 4 simpele stappen</h2>
+        <p>Begin vandaag nog met het delen van jullie momenten.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-phone">
+            <div class="step-phone-screen">📲</div>
+          </div>
+          <h4>Download de App</h4>
+          <p>Beschikbaar voor iOS en Android</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-phone">
+            <div class="step-phone-screen">👨‍👩‍👧‍👦</div>
+          </div>
+          <h4>Maak een Groep</h4>
+          <p>Of word lid van een bestaande groep</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-phone">
+            <div class="step-phone-screen">📸</div>
+          </div>
+          <h4>Deel Momenten</h4>
+          <p>Upload foto's en video's</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-phone">
+            <div class="step-phone-screen">❤️</div>
+          </div>
+          <h4>Blijf Verbonden</h4>
+          <p>Like en reageer op posts</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="testimonials-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Reviews</span>
+        <h2>Wat gebruikers zeggen</h2>
+        <p>Ontdek waarom zoveel groepen Famly verkiezen boven andere apps.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">M</div>
+            <div class="testimonial-info">
+              <h4>Maria de Vries</h4>
+              <span>App Store Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"Eindelijk een app waar ik mijn foto's kan delen zonder dat de hele wereld meekijkt. Mijn schoonouders vinden het geweldig!"</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">J</div>
+            <div class="testimonial-info">
+              <h4>Jan Bakker</h4>
+              <span>App Store Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"Super makkelijk in gebruik. Zelfs mijn oma van 82 kan ermee overweg. We delen nu dagelijks foto's van de kleinkinderen."</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">S</div>
+            <div class="testimonial-info">
+              <h4>Sophie Jansen</h4>
+              <span>App Store Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"Geen reclames, geen gedoe. Gewoon een simpele app om herinneringen te delen met familie. Precies wat ik zocht!"</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">P</div>
+            <div class="testimonial-info">
+              <h4>Peter van Dijk</h4>
+              <span>Google Play Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"Wij wonen in Australië en onze familie en vrienden in Nederland. Dankzij Famly kunnen we toch alle momenten delen. Fantastisch!"</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">A</div>
+            <div class="testimonial-info">
+              <h4>Anna Visser</h4>
+              <span>Google Play Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"De beste beslissing om WhatsApp groepen te vervangen. Nu is alles netjes georganiseerd en terug te vinden."</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">T</div>
+            <div class="testimonial-info">
+              <h4>Thomas Mulder</h4>
+              <span>App Store Review</span>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p>"Ik heb nu aparte groepen voor mijn familie, schoonfamilie en vrienden. Iedereen ziet alleen wat voor hen bedoeld is. Perfect!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">FAQ</span>
+        <h2>Veelgestelde Vragen</h2>
+        <p>Heb je een vraag? Hier vind je de antwoorden.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question">
+            Wat is Famly?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Famly is een privé app voor het delen van foto's en video's met je familie en vrienden. Maak groepen en nodig mensen uit - alleen zij kunnen je posts zien. Geen vreemden, geen advertenties.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is Famly gratis?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ja, Famly is volledig gratis te gebruiken. Je kunt onbeperkt foto's en video's delen met je groepen zonder kosten.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Hoe nodig ik mensen uit?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Je kunt mensen uitnodigen via een QR-code of door een uitnodigingslink te delen via WhatsApp, SMS of email.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Kan ik meerdere groepen aanmaken?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ja, je kunt onbeperkt groepen aanmaken. Bijvoorbeeld één voor je directe familie, één voor schoonfamilie en één voor vrienden.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is mijn data veilig?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Ja, privacy staat voorop bij Famly. Je foto's en video's worden veilig opgeslagen en alleen gedeeld met de mensen die je uitnodigt.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Op welke apparaten werkt Famly?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Famly is beschikbaar voor iPhone (iOS) en Android telefoons. Download de app gratis via de App Store of Google Play.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMMUNITY CTA ==================== -->
+  <section class="community-section">
+    <div class="container">
+      <h2>Word onderdeel van de Famly community</h2>
+      <div class="community-roles">
+        <span class="role-tag">👨‍👩‍👧‍👦 Families</span>
+        <span class="role-tag">👫 Vriendengroepen</span>
+        <span class="role-tag">👴 Grootouders</span>
+        <span class="role-tag">🌍 Expats</span>
+        <span class="role-tag">⚽ Sportclubs</span>
+        <span class="role-tag">🏠 Samengestelde gezinnen</span>
+      </div>
+      <a href="#download" class="btn btn-primary">Download de App</a>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA ==================== -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Begin vandaag met het delen van jullie mooiste momenten</h2>
+      <p>Download Famly gratis en verbind je met familie en vrienden.</p>
+      <div class="hero-buttons">
+        <a href="https://apps.apple.com/us/app/famly/id6751124006" class="store-btn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <div class="text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.familytime.connect" class="store-btn" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+          </svg>
+          <div class="text">
+            <small>Get it on</small>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+      <div class="final-mockups">
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/post1.png');">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/fotoalbum.png');">
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-screen with-screenshot" style="background-image: url('screenshots/notificaties.png');">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="app-icon.png" alt="Famly">
+            <span>Famly</span>
+          </a>
+          <p>Deel bijzondere momenten met je familie en vrienden. Privé, veilig en alleen voor jullie.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">📸</a>
+            <a href="mailto:noreply@famlysocial.com" class="social-link">✉️</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>App</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">Hoe het werkt</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Download</h4>
+          <ul class="footer-links">
+            <li><a href="https://apps.apple.com/us/app/famly/id6751124006" target="_blank">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.familytime.connect" target="_blank">Google Play</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:noreply@famlysocial.com">noreply@famlysocial.com</a></li>
+          </ul>
+          <h4 style="margin-top: 24px;">Nieuwsbrief</h4>
+          <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Je email">
+            <button type="submit">→</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Famly. Alle rechten voorbehouden.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/privacy">Voorwaarden</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FAQ Toggle Script -->
   <script>
-    (()=>{var _={blink:!0,gecko:!1,webkit:!1,unknown:!1},K=()=>navigator.vendor==="Google Inc."||navigator.userAgent.includes("Edg/")?"blink":navigator.vendor==="Apple Computer, Inc."?"webkit":navigator.vendor===""&&navigator.userAgent.includes("Firefox")?"gecko":"unknown",L=K(),R=()=>typeof ImageDecoder>"u"?!1:L==="blink",B=()=>typeof Intl.v8BreakIterator<"u"&&typeof Intl.Segmenter<"u",z=()=>{let i=[0,97,115,109,1,0,0,0,1,5,1,95,1,120,0];return WebAssembly.validate(new Uint8Array(i))},M=()=>{let i=document.createElement("canvas");return i.width=1,i.height=1,i.getContext("webgl2")!=null?2:i.getContext("webgl")!=null?1:-1},w={browserEngine:L,hasImageCodecs:R(),hasChromiumBreakIterators:B(),supportsWasmGC:z(),crossOriginIsolated:window.crossOriginIsolated,webGLVersion:M()};function c(...i){return new URL(I(...i),document.baseURI).toString()}function I(...i){return i.filter(e=>!!e).map((e,r)=>r===0?C(e):D(C(e))).filter(e=>e.length).join("/")}function D(i){let e=0;for(;e<i.length&&i.charAt(e)==="/";)e++;return i.substring(e)}function C(i){let e=i.length;for(;e>0&&i.charAt(e-1)==="/";)e--;return i.substring(0,e)}function T(i,e){return i.canvasKitBaseUrl?i.canvasKitBaseUrl:e.engineRevision&&!e.useLocalCanvasKit?I("https://www.gstatic.com/flutter-canvaskit",e.engineRevision):"canvaskit"}var h=class{constructor(){this._scriptLoaded=!1}setTrustedTypesPolicy(e){this._ttPolicy=e}async loadEntrypoint(e){let{entrypointUrl:r=c("main.dart.js"),onEntrypointLoaded:t,nonce:n}=e||{};return this._loadJSEntrypoint(r,t,n)}async load(e,r,t,n,s){s??=d=>{d.initializeEngine(t).then(u=>u.runApp())};let{entrypointBaseUrl:a}=t,{entryPointBaseUrl:o}=t;if(!a&&o&&(console.warn("[deprecated] `entryPointBaseUrl` is deprecated and will be removed in a future release. Use `entrypointBaseUrl` instead."),a=o),e.compileTarget==="dart2wasm")return this._loadWasmEntrypoint(e,r,a,s);{let d=e.mainJsPath??"main.dart.js",u=c(a,d);return this._loadJSEntrypoint(u,s,n)}}didCreateEngineInitializer(e){typeof this._didCreateEngineInitializerResolve=="function"&&(this._didCreateEngineInitializerResolve(e),this._didCreateEngineInitializerResolve=null,delete _flutter.loader.didCreateEngineInitializer),typeof this._onEntrypointLoaded=="function"&&this._onEntrypointLoaded(e)}_loadJSEntrypoint(e,r,t){let n=typeof r=="function";if(!this._scriptLoaded){this._scriptLoaded=!0;let s=this._createScriptTag(e,t);if(n)console.debug("Injecting <script> tag. Using callback."),this._onEntrypointLoaded=r,document.head.append(s);else return new Promise((a,o)=>{console.debug("Injecting <script> tag. Using Promises. Use the callback approach instead!"),this._didCreateEngineInitializerResolve=a,s.addEventListener("error",o),document.head.append(s)})}}async _loadWasmEntrypoint(e,r,t,n){if(!this._scriptLoaded){this._scriptLoaded=!0,this._onEntrypointLoaded=n;let{mainWasmPath:s,jsSupportRuntimePath:a}=e,o=c(t,s),d=c(t,a);this._ttPolicy!=null&&(d=this._ttPolicy.createScriptURL(d));let l=(await import(d)).compileStreaming(fetch(o)),p;e.renderer==="skwasm"?p=(async()=>{let v=await r.skwasm;return window._flutter_skwasmInstance=v,{skwasm:v.wasmExports,skwasmWrapper:v,ffi:{memory:v.wasmMemory}}})():p=Promise.resolve({}),await(await(await l).instantiate(await p,{loadDynamicModule:async(v,j)=>{let x=fetch(c(t,v)),S=c(t,j);this._ttPolicy!=null&&(S=this._ttPolicy.createScriptURL(S));let A=import(S);return[await x,await A]}})).invokeMain()}}_createScriptTag(e,r){let t=document.createElement("script");t.type="application/javascript",r&&(t.nonce=r);let n=e;return this._ttPolicy!=null&&(n=this._ttPolicy.createScriptURL(e)),t.src=n,t}};async function U(i,e,r){if(e<0)return i;let t,n=new Promise((s,a)=>{t=setTimeout(()=>{a(new Error(`${r} took more than ${e}ms to resolve. Moving on.`,{cause:U}))},e)});return Promise.race([i,n]).finally(()=>{clearTimeout(t)})}var g=class{setTrustedTypesPolicy(e){this._ttPolicy=e}loadServiceWorker(e){if(!e)return console.debug("Null serviceWorker configuration. Skipping."),Promise.resolve();if(!("serviceWorker"in navigator)){let o="Service Worker API unavailable.";return window.isSecureContext||(o+=`
-The current context is NOT secure.`,o+=`
-Read more: https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts`),Promise.reject(new Error(o))}let{serviceWorkerVersion:r,serviceWorkerUrl:t=c(`flutter_service_worker.js?v=${r}`),timeoutMillis:n=4e3}=e,s=t;this._ttPolicy!=null&&(s=this._ttPolicy.createScriptURL(s));let a=navigator.serviceWorker.register(s).then(o=>this._getNewServiceWorker(o,r)).then(this._waitForServiceWorkerActivation);return U(a,n,"prepareServiceWorker")}async _getNewServiceWorker(e,r){if(!e.active&&(e.installing||e.waiting))return console.debug("Installing/Activating first service worker."),e.installing||e.waiting;if(e.active.scriptURL.endsWith(r))return console.debug("Loading from existing service worker."),e.active;{let t=await e.update();return console.debug("Updating service worker."),t.installing||t.waiting||t.active}}async _waitForServiceWorkerActivation(e){if(!e||e.state==="activated")if(e){console.debug("Service worker already active.");return}else throw new Error("Cannot activate a null service worker!");return new Promise((r,t)=>{e.addEventListener("statechange",()=>{e.state==="activated"&&(console.debug("Activated new service worker."),r())})})}};var y=class{constructor(e,r="flutter-js"){let t=e||[/\.js$/,/\.mjs$/];window.trustedTypes&&(this.policy=trustedTypes.createPolicy(r,{createScriptURL:function(n){if(n.startsWith("blob:"))return n;let s=new URL(n,window.location),a=s.pathname.split("/").pop();if(t.some(d=>d.test(a)))return s.toString();console.error("URL rejected by TrustedTypes policy",r,":",n,"(download prevented)")}}))}};var k=i=>{let e=WebAssembly.compileStreaming(fetch(i));return(r,t)=>((async()=>{let n=await e,s=await WebAssembly.instantiate(n,r);t(s,n)})(),{})};var E=(i,e,r,t)=>(window.flutterCanvasKitLoaded=(async()=>{if(window.flutterCanvasKit)return window.flutterCanvasKit;let n=r.hasChromiumBreakIterators&&r.hasImageCodecs;if(!n&&e.canvasKitVariant=="chromium")throw"Chromium CanvasKit variant specifically requested, but unsupported in this browser";let s=n&&e.canvasKitVariant!=="full",a=t;e.canvasKitVariant=="experimentalWebParagraph"?a=c(a,"experimental_webparagraph"):s&&(a=c(a,"chromium"));let o=c(a,"canvaskit.js");i.flutterTT.policy&&(o=i.flutterTT.policy.createScriptURL(o));let d=k(c(a,"canvaskit.wasm")),u=await import(o);return window.flutterCanvasKit=await u.default({instantiateWasm:d}),window.flutterCanvasKit})(),window.flutterCanvasKitLoaded);var W=async(i,e,r,t)=>{let s=!r.hasImageCodecs||!r.hasChromiumBreakIterators?"skwasm_heavy":"skwasm",a=c(t,`${s}.js`),o=a;i.flutterTT.policy&&(o=i.flutterTT.policy.createScriptURL(o));let d=k(c(t,`${s}.wasm`));return await(await import(o)).default({skwasmSingleThreaded:!r.crossOriginIsolated||e.forceSingleThreadedSkwasm,instantiateWasm:d,locateFile:(l,p)=>{if(l.endsWith(".ww.js")){let f=c(t,l);return URL.createObjectURL(new Blob([`
-"use strict";
-
-let eventListener;
-eventListener = (message) => {
-    const pendingMessages = [];
-    const data = message.data;
-    data["instantiateWasm"] = (info,receiveInstance) => {
-        const instance = new WebAssembly.Instance(data["wasm"], info);
-        return receiveInstance(instance, data["wasm"])
-    };
-    import(data.js).then(async (skwasm) => {
-        await skwasm.default(data);
-
-        removeEventListener("message", eventListener);
-        for (const message of pendingMessages) {
-            dispatchEvent(message);
-        }
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
     });
-    removeEventListener("message", eventListener);
-    eventListener = (message) => {
-
-        pendingMessages.push(message);
-    };
-
-    addEventListener("message", eventListener);
-};
-addEventListener("message", eventListener);
-`],{type:"application/javascript"}))}return url},mainScriptUrlOrBlob:a})};var P=w.supportsWasmGC,G=P&&w.webGLVersion>0,b=class{async loadEntrypoint(e){let{serviceWorker:r,...t}=e||{},n=new y,s=new g;s.setTrustedTypesPolicy(n.policy),await s.loadServiceWorker(r).catch(o=>{console.warn("Exception while loading service worker:",o)});let a=new h;return a.setTrustedTypesPolicy(n.policy),this.didCreateEngineInitializer=a.didCreateEngineInitializer.bind(a),a.loadEntrypoint(t)}async load({serviceWorkerSettings:e,onEntrypointLoaded:r,nonce:t,config:n}={}){n??={};let s=_flutter.buildConfig;if(!s)throw"FlutterLoader.load requires _flutter.buildConfig to be set";let a=n.wasmAllowList?.[w.browserEngine]??_[w.browserEngine],o=m=>{switch(m){case"skwasm":return G&&a;default:return!0}},d=m=>m.compileTarget==="dart2wasm"&&!P||n.renderer&&n.renderer!=m.renderer?!1:o(m.renderer),u=s.builds.find(d);if(!u)throw"FlutterLoader could not find a build compatible with configuration and environment.";let l={};l.flutterTT=new y,e&&(l.serviceWorkerLoader=new g,l.serviceWorkerLoader.setTrustedTypesPolicy(l.flutterTT.policy),await l.serviceWorkerLoader.loadServiceWorker(e).catch(m=>{console.warn("Exception while loading service worker:",m)}));let p=T(n,s);u.renderer==="canvaskit"?l.canvasKit=E(l,n,w,p):u.renderer==="skwasm"&&(l.skwasm=W(l,n,w,p));let f=new h;return f.setTrustedTypesPolicy(l.flutterTT.policy),this.didCreateEngineInitializer=f.didCreateEngineInitializer.bind(f),f.load(u,l,n,t,r)}};window._flutter||(window._flutter={});window._flutter.loader||(window._flutter.loader=new b);})();
-//# sourceMappingURL=flutter.js.map
-
-if (!window._flutter) {
-  window._flutter = {};
-}
-_flutter.buildConfig = {"engineRevision":"a5cb96369ef86c7e85abf5d662a1ca5d89775053","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}]};
-
-
-_flutter.loader.load(
-    {
-        onEntrypointLoaded: async function(engineInitializer) {
-            // Initialize the Flutter engine
-            let appRunner = await engineInitializer.initializeEngine({useColorEmoji: true,});
-            // Run the app
-            await appRunner.runApp();
-          }
-    }
-);
-
   </script>
+
 </body>
 </html>
