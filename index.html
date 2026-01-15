@@ -1156,6 +1156,30 @@
     @media (max-width: 1024px) {
       .header-container nav {
         display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container nav.mobile-open {
+        display: flex;
+      }
+
+      .header-container nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+      }
+
+      .header-container nav a:last-child {
+        border-bottom: none;
       }
 
       .mobile-menu-btn {
@@ -1374,29 +1398,6 @@
           <h3>Notificaties</h3>
           <p>Mis geen enkel moment met slimme meldingen.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== RATING SECTION ==================== -->
-  <section class="rating-section">
-    <div class="container">
-      <div class="rating-content">
-        <div class="rating-stars">
-          <span class="rating-number">4.9</span>
-          <div>
-            <div class="stars">★★★★★</div>
-            <span class="rating-text">App Store Rating</span>
-          </div>
-        </div>
-        <div class="rating-users">
-          <div class="user-avatar">👨</div>
-          <div class="user-avatar">👩</div>
-          <div class="user-avatar">👴</div>
-          <div class="user-avatar">👧</div>
-          <div class="user-avatar">+</div>
-        </div>
-        <span class="rating-text">Vertrouwd door 1000+ groepen</span>
       </div>
     </div>
   </section>
@@ -1775,6 +1776,23 @@
       button.addEventListener('click', () => {
         const item = button.parentElement;
         item.classList.toggle('active');
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('mobile-open');
+      mobileMenuBtn.textContent = nav.classList.contains('mobile-open') ? '✕' : '☰';
+    });
+
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('mobile-open');
+        mobileMenuBtn.textContent = '☰';
       });
     });
   </script>
