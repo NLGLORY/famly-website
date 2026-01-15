@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Famly</title>
+  <meta name="description" content="Privacy Policy for Famly - Your privacy is our foundation.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy - Famly">
+  <meta property="og:description" content="Privacy Policy for Famly - Your privacy is our foundation.">
+  <meta property="og:image" content="https://famlysocial.app/app-icon.png">
+  <meta property="og:url" content="https://famlysocial.app/privacy">
+  <meta property="og:type" content="website">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Famly">
+  <link rel="apple-touch-icon" href="app-icon.png">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #ffffff;
+      color: #1a1a2e;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ec4899;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+      text-decoration: none;
+    }
+
+    /* Main Content */
+    main {
+      padding: 120px 0 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px 0;
+      background: linear-gradient(180deg, #fdf4ff 0%, #ffffff 100%);
+      border-radius: 24px;
+    }
+
+    .page-header h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header .subtitle {
+      font-size: 18px;
+      color: #6b6b8a;
+      margin-bottom: 8px;
+    }
+
+    .page-header .last-updated {
+      font-size: 14px;
+      color: #8b8ba3;
+    }
+
+    .intro-box {
+      background: linear-gradient(135deg, #fdf4ff, #f5f3ff);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 40px;
+      border-left: 4px solid #ec4899;
+    }
+
+    .intro-box p {
+      font-size: 16px;
+      color: #4a4a6a;
+      margin: 0;
+    }
+
+    .intro-box p strong {
+      color: #1a1a2e;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section h2::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      border-radius: 2px;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #4a4a6a;
+      margin-bottom: 16px;
+    }
+
+    .section ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .section ul li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: #4a4a6a;
+    }
+
+    .section ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: rgba(236, 72, 153, 0.1);
+      color: #ec4899;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .section strong {
+      color: #1a1a2e;
+    }
+
+    .contact-box {
+      background: #f9f9fb;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .contact-box p {
+      margin-bottom: 8px;
+    }
+
+    .contact-box a {
+      color: #ec4899;
+      font-weight: 500;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e5e5e5, transparent);
+      margin: 60px 0;
+    }
+
+    /* Child Safety Section */
+    .child-safety-header {
+      background: linear-gradient(135deg, #1a1a2e, #2d2d4a);
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .child-safety-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .child-safety-header h2::before {
+      display: none;
+    }
+
+    .child-safety-header .last-updated {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .warning-box {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .warning-box p {
+      color: #991b1b;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a2e;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer .logo {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      color: #8b8ba3;
+      font-size: 14px;
+    }
+
+    footer .links {
+      margin-top: 20px;
+    }
+
+    footer .links a {
+      color: #8b8ba3;
+      margin: 0 16px;
+      font-size: 14px;
+    }
+
+    footer .links a:hover {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 32px;
+      }
+
+      .section h2 {
+        font-size: 20px;
+      }
+
+      main {
+        padding: 100px 0 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">
+        <img src="app-icon.png" alt="Famly">
+        <span>Famly</span>
+      </a>
+      <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+
+      <!-- Privacy Policy Header -->
+      <div class="page-header">
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Developer: Famlysocial</p>
+        <p class="last-updated">Last updated: January 2026</p>
+      </div>
+
+      <!-- Intro -->
+      <div class="intro-box">
+        <p>At Famly, your privacy isn't just a feature — <strong>it's a foundation.</strong></p>
+        <p style="margin-top: 12px;">We believe family moments belong to families, not to algorithms or advertisers.</p>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="section">
+        <h2>1. What we collect</h2>
+        <p>Famly only collects the minimum information necessary to make the app work safely and smoothly:</p>
+        <ul>
+          <li><strong>Account information:</strong> name, email, and password (encrypted).</li>
+          <li><strong>Shared content:</strong> photos, messages, or posts you choose to upload.</li>
+          <li><strong>Technical data:</strong> basic device and usage information to help us improve performance and fix bugs.</li>
+        </ul>
+        <p><strong>We never sell, share, or trade your data with advertisers or third parties.</strong></p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section">
+        <h2>2. How your data is used</h2>
+        <p>We use your information only to:</p>
+        <ul>
+          <li>Allow you to log in and manage your account.</li>
+          <li>Show your shared family content securely to your chosen family members.</li>
+          <li>Maintain the security and performance of the app.</li>
+        </ul>
+        <p><strong>That's it — no ads, no tracking, no profiling.</strong></p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section">
+        <h2>3. How we keep your data safe</h2>
+        <ul>
+          <li>All connections to Famly are encrypted (HTTPS).</li>
+          <li>Content is stored securely and accessible only to your invited family members.</li>
+          <li>We routinely review our security systems to protect against unauthorized access or data loss.</li>
+          <li>If you ever delete your account, all your data and media are permanently removed from our servers.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section">
+        <h2>4. Your control</h2>
+        <p>You can:</p>
+        <ul>
+          <li>Access and download your data at any time.</li>
+          <li>Delete your account whenever you choose.</li>
+          <li>Contact us directly for any privacy-related questions.</li>
+        </ul>
+        <p>Simply email <a href="mailto:info@famlysocial.com">info@famlysocial.com</a> and we'll assist you right away.</p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="section">
+        <h2>5. Children's privacy</h2>
+        <ul>
+          <li>Famly is committed to protecting the safety and well-being of all users, especially minors.</li>
+          <li>We do not allow any content or behavior that exploits, harms, or endangers children.</li>
+          <li>All reports related to child safety are reviewed promptly, and verified cases of abuse or exploitation are reported to the appropriate authorities.</li>
+          <li>Famly complies with all relevant child protection and data privacy laws.</li>
+        </ul>
+        <p>Users can report concerns or violations by contacting <a href="mailto:info@famlysocial.com">info@famlysocial.com</a></p>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="section">
+        <h2>6. Updates</h2>
+        <p>If we make changes to this Privacy Policy, we'll post them here and update the "last updated" date.</p>
+        <p>Major updates will also be shared in the app.</p>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="section">
+        <h2>7. Contact</h2>
+        <p>If you have questions about this Privacy Policy or how Famly handles data, reach out to us:</p>
+        <div class="contact-box">
+          <p>📧 <a href="mailto:info@famlysocial.com">info@famlysocial.com</a></p>
+          <p>🌍 <a href="https://www.famlysocial.com">www.famlysocial.com</a></p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Child Safety Standards -->
+      <div class="child-safety-header">
+        <h2>Famly Child Safety and Protection Standards</h2>
+        <p class="last-updated">Last updated: January 2026</p>
+      </div>
+
+      <p style="color: #4a4a6a; margin-bottom: 24px;">Famly, developed by Famlysocial, is committed to protecting all users and ensuring a safe environment for families. We maintain a strict zero-tolerance policy toward Child Sexual Abuse and Exploitation (CSAE).</p>
+
+      <!-- CSAE Section 1 -->
+      <div class="section">
+        <h2>1. Zero-Tolerance Policy for CSAE</h2>
+        <p>Famly strictly prohibits:</p>
+        <div class="warning-box">
+          <p>• Child sexual abuse material (CSAM)<br>
+          • Any form of sexual exploitation or abuse of minors<br>
+          • Grooming or inappropriate communication with minors<br>
+          • Sharing, requesting, or creating harmful content involving children</p>
+        </div>
+        <p><strong>Violations will result in immediate content removal, account suspension, and reporting to relevant authorities.</strong></p>
+      </div>
+
+      <!-- CSAE Section 2 -->
+      <div class="section">
+        <h2>2. Moderation and Detection</h2>
+        <p>Famly uses automated systems, human moderation, and user reports to detect harmful content or behavior. Reported and automatically flagged items are reviewed by our safety team as quickly as possible.</p>
+      </div>
+
+      <!-- CSAE Section 3 -->
+      <div class="section">
+        <h2>3. Legal Reporting Obligations</h2>
+        <p>Confirmed cases of CSAM or online exploitation will be reported to:</p>
+        <ul>
+          <li>NCMEC (National Center for Missing & Exploited Children)</li>
+          <li>Relevant local and international law enforcement agencies</li>
+        </ul>
+        <p>Famly complies with all applicable laws and regulations regarding child protection.</p>
+      </div>
+
+      <!-- CSAE Section 4 -->
+      <div class="section">
+        <h2>4. Reporting Abuse</h2>
+        <p>Users can report abuse, inappropriate behavior, or harmful content through:</p>
+        <ul>
+          <li>In-app reporting tools</li>
+          <li>Email: <a href="mailto:safety@famlysocial.com">safety@famlysocial.com</a></li>
+        </ul>
+        <p>All reports are reviewed as quickly as possible.</p>
+      </div>
+
+      <!-- CSAE Section 5 -->
+      <div class="section">
+        <h2>5. Child-Safety Contact</h2>
+        <p>For urgent or sensitive child-safety reports:</p>
+        <div class="contact-box">
+          <p><strong>Child Safety Officer – Famly</strong></p>
+          <p>📧 <a href="mailto:safety@famlysocial.com">safety@famlysocial.com</a></p>
+        </div>
+      </div>
+
+      <!-- CSAE Section 6 -->
+      <div class="section">
+        <h2>6. Rules for User-Generated Content</h2>
+        <p>Famly only allows content sharing within private family groups. The following rules apply:</p>
+        <ul>
+          <li>No public visibility</li>
+          <li>No anonymous accounts</li>
+          <li>All shared content must be appropriate and safe</li>
+          <li>Illegal or harmful content is strictly prohibited and will be removed immediately</li>
+        </ul>
+      </div>
+
+      <!-- CSAE Section 7 -->
+      <div class="section">
+        <h2>7. Compliance Statement</h2>
+        <p>Famly confirms that:</p>
+        <ul>
+          <li>The app includes an in-app reporting mechanism</li>
+          <li>The app has processes for identifying and handling CSAM</li>
+          <li>The app complies with relevant legal requirements</li>
+          <li>These Child Safety Standards are publicly accessible and functional</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="app-icon.png" alt="Famly">
+        <span>Famly</span>
+      </a>
+      <p>© 2026 Famly. All rights reserved.</p>
+      <div class="links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:support@famlysocial.app">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
