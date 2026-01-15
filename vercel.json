@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    { "source": "/join", "destination": "/index.html" },
+    { "source": "/join/(.*)", "destination": "/index.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/download", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/.well-known/apple-app-site-association",
@@ -17,12 +23,6 @@
           "value": "application/json"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }
