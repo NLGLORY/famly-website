@@ -121,6 +121,12 @@
       background-clip: text;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     nav {
       display: flex;
       align-items: center;
@@ -136,6 +142,38 @@
 
     nav a:hover {
       color: #ec4899;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f5f5f7;
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #6b6b8a;
+    }
+
+    .lang-btn.active {
+      background: white;
+      color: #1a1a2e;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .lang-btn:hover:not(.active) {
+      color: #1a1a2e;
     }
 
     .btn {
@@ -1162,6 +1200,10 @@
         display: block;
       }
 
+      .header-right .btn {
+        display: none;
+      }
+
       .hero h1 {
         font-size: 42px;
       }
@@ -1270,6 +1312,10 @@
       .final-mockups {
         display: none;
       }
+
+      .lang-switcher {
+        order: -1;
+      }
     }
   </style>
 </head>
@@ -1283,21 +1329,27 @@
         <span>Famly</span>
       </a>
       <nav>
-        <a href="#features">Features</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
         <a href="#faq">FAQ</a>
         <a href="https://wa.me/31682579618" target="_blank">Contact</a>
       </nav>
-      <a href="#download" class="btn btn-primary">Download App</a>
-      <button class="mobile-menu-btn">☰</button>
+      <div class="header-right">
+        <div class="lang-switcher">
+          <button class="lang-btn" data-lang="nl">NL</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
+        <button class="mobile-menu-btn">☰</button>
+      </div>
     </div>
   </header>
 
   <!-- ==================== HERO ==================== -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">✨ #1 App voor Groepen</div>
-      <h1>Deel <span class="gradient">Jullie Momenten</span> Op Eén Veilige Plek</h1>
-      <p class="hero-subtitle">Famly is dé app voor het delen van foto's en video's met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie, zonder reclame of vreemden.</p>
+      <div class="hero-badge" data-i18n="hero.badge">✨ #1 App voor Groepen</div>
+      <h1 data-i18n="hero.title">Deel <span class="gradient" data-i18n="hero.titleGradient">Jullie Momenten</span> Op Eén Veilige Plek</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Famly is dé app voor het delen van foto's en video's met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie, zonder reclame of vreemden.</p>
       <div class="hero-buttons" id="download">
         <a href="https://apps.apple.com/us/app/famly/id6751124006" class="store-btn" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1339,40 +1391,40 @@
   <section class="overview-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Overzicht</span>
-        <h2>Waarom Famly?</h2>
-        <p>Speciaal ontworpen voor familie en vrienden die hun mooiste momenten willen bewaren en delen.</p>
+        <span class="section-badge" data-i18n="overview.badge">Overzicht</span>
+        <h2 data-i18n="overview.title">Waarom Famly?</h2>
+        <p data-i18n="overview.subtitle">Speciaal ontworpen voor familie en vrienden die hun mooiste momenten willen bewaren en delen.</p>
       </div>
       <div class="overview-grid">
         <div class="overview-card">
           <div class="overview-icon">🔒</div>
-          <h3>100% Privé</h3>
-          <p>Geen openbare profielen. Alleen jouw groepsleden kunnen je posts zien.</p>
+          <h3 data-i18n="overview.card1.title">100% Privé</h3>
+          <p data-i18n="overview.card1.desc">Geen openbare profielen. Alleen jouw groepsleden kunnen je posts zien.</p>
         </div>
         <div class="overview-card">
           <div class="overview-icon">📱</div>
-          <h3>Makkelijk te Gebruiken</h3>
-          <p>Intuïtieve interface voor iedereen, van kleinkind tot grootouder.</p>
+          <h3 data-i18n="overview.card2.title">Makkelijk te Gebruiken</h3>
+          <p data-i18n="overview.card2.desc">Intuïtieve interface voor iedereen, van kleinkind tot grootouder.</p>
         </div>
         <div class="overview-card">
           <div class="overview-icon">🌍</div>
-          <h3>Overal Toegang</h3>
-          <p>Beschikbaar op iOS en Android. Altijd en overal bij je herinneringen.</p>
+          <h3 data-i18n="overview.card3.title">Overal Toegang</h3>
+          <p data-i18n="overview.card3.desc">Beschikbaar op iOS en Android. Altijd en overal bij je herinneringen.</p>
         </div>
         <div class="overview-card">
           <div class="overview-icon">🎬</div>
-          <h3>Foto's & Video's</h3>
-          <p>Deel media in hoge kwaliteit zonder compressie.</p>
+          <h3 data-i18n="overview.card4.title">Foto's & Video's</h3>
+          <p data-i18n="overview.card4.desc">Deel media in hoge kwaliteit zonder compressie.</p>
         </div>
         <div class="overview-card">
           <div class="overview-icon">👨‍👩‍👧‍👦</div>
-          <h3>Meerdere Groepen</h3>
-          <p>Maak aparte groepen voor familie, vrienden of andere kringen.</p>
+          <h3 data-i18n="overview.card5.title">Meerdere Groepen</h3>
+          <p data-i18n="overview.card5.desc">Maak aparte groepen voor familie, vrienden of andere kringen.</p>
         </div>
         <div class="overview-card">
           <div class="overview-icon">🔔</div>
-          <h3>Notificaties</h3>
-          <p>Mis geen enkel moment met slimme meldingen.</p>
+          <h3 data-i18n="overview.card6.title">Notificaties</h3>
+          <p data-i18n="overview.card6.desc">Mis geen enkel moment met slimme meldingen.</p>
         </div>
       </div>
     </div>
@@ -1383,22 +1435,22 @@
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Features</span>
-        <h2>Alles wat je nodig hebt</h2>
-        <p>Krachtige functies om jullie momenten te delen en bewaren.</p>
+        <h2 data-i18n="features.title">Alles wat je nodig hebt</h2>
+        <p data-i18n="features.subtitle">Krachtige functies om jullie momenten te delen en bewaren.</p>
       </div>
 
       <!-- Feature 1 -->
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">📸</div>
-          <h3>Foto's & Video's Delen</h3>
-          <p>Deel je mooiste momenten met je groep in hoge kwaliteit. Geen compressie, geen kwaliteitsverlies. Upload foto's en video's direct vanaf je camera of galerij.</p>
+          <h3 data-i18n="features.f1.title">Foto's & Video's Delen</h3>
+          <p data-i18n="features.f1.desc">Deel je mooiste momenten met je groep in hoge kwaliteit. Geen compressie, geen kwaliteitsverlies. Upload foto's en video's direct vanaf je camera of galerij.</p>
           <ul class="feature-list">
-            <li>Onbeperkt foto's en video's uploaden</li>
-            <li>Hoge kwaliteit behouden</li>
-            <li>Direct delen met je groep</li>
+            <li data-i18n="features.f1.li1">Onbeperkt foto's en video's uploaden</li>
+            <li data-i18n="features.f1.li2">Hoge kwaliteit behouden</li>
+            <li data-i18n="features.f1.li3">Direct delen met je groep</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1412,14 +1464,14 @@
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">👨‍👩‍👧‍👦</div>
-          <h3>Privé Groepen</h3>
-          <p>Maak aparte groepen voor verschillende kringen. Familie, vrienden, sportclub - iedereen krijgt zijn eigen privé ruimte.</p>
+          <h3 data-i18n="features.f2.title">Privé Groepen</h3>
+          <p data-i18n="features.f2.desc">Maak aparte groepen voor verschillende kringen. Familie, vrienden, sportclub - iedereen krijgt zijn eigen privé ruimte.</p>
           <ul class="feature-list">
-            <li>Onbeperkt groepen aanmaken</li>
-            <li>Eenvoudig leden uitnodigen via QR of link</li>
-            <li>Beheer wie wat kan zien</li>
+            <li data-i18n="features.f2.li1">Onbeperkt groepen aanmaken</li>
+            <li data-i18n="features.f2.li2">Eenvoudig leden uitnodigen via QR of link</li>
+            <li data-i18n="features.f2.li3">Beheer wie wat kan zien</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1433,14 +1485,14 @@
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">💬</div>
-          <h3>Reacties & Likes</h3>
-          <p>Blijf betrokken bij elkaars leven. Reageer op posts, geef likes en blijf verbonden met je groep, ook op afstand.</p>
+          <h3 data-i18n="features.f3.title">Reacties & Likes</h3>
+          <p data-i18n="features.f3.desc">Blijf betrokken bij elkaars leven. Reageer op posts, geef likes en blijf verbonden met je groep, ook op afstand.</p>
           <ul class="feature-list">
-            <li>Reageer met tekst of emoji's</li>
-            <li>Like de posts van groepsleden</li>
-            <li>Ontvang notificaties bij reacties</li>
+            <li data-i18n="features.f3.li1">Reageer met tekst of emoji's</li>
+            <li data-i18n="features.f3.li2">Like de posts van groepsleden</li>
+            <li data-i18n="features.f3.li3">Ontvang notificaties bij reacties</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1454,14 +1506,14 @@
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">📅</div>
-          <h3>Groepsalbum</h3>
-          <p>Al je herinneringen automatisch georganiseerd per maand. Scroll terug in de tijd en herbeleef jullie mooiste momenten.</p>
+          <h3 data-i18n="features.f4.title">Groepsalbum</h3>
+          <p data-i18n="features.f4.desc">Al je herinneringen automatisch georganiseerd per maand. Scroll terug in de tijd en herbeleef jullie mooiste momenten.</p>
           <ul class="feature-list">
-            <li>Automatisch gesorteerd op datum</li>
-            <li>Makkelijk zoeken en browsen</li>
-            <li>Nooit meer herinneringen kwijt</li>
+            <li data-i18n="features.f4.li1">Automatisch gesorteerd op datum</li>
+            <li data-i18n="features.f4.li2">Makkelijk zoeken en browsen</li>
+            <li data-i18n="features.f4.li3">Nooit meer herinneringen kwijt</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1475,14 +1527,14 @@
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">🔒</div>
-          <h3>Privé & Veilig</h3>
-          <p>Jouw herinneringen zijn van jou. Geen advertenties, geen tracking, geen vreemden. Alleen jouw groep.</p>
+          <h3 data-i18n="features.f5.title">Privé & Veilig</h3>
+          <p data-i18n="features.f5.desc">Jouw herinneringen zijn van jou. Geen advertenties, geen tracking, geen vreemden. Alleen jouw groep.</p>
           <ul class="feature-list">
-            <li>End-to-end privacy</li>
-            <li>Geen advertenties</li>
-            <li>Geen dataverzameling</li>
+            <li data-i18n="features.f5.li1">End-to-end privacy</li>
+            <li data-i18n="features.f5.li2">Geen advertenties</li>
+            <li data-i18n="features.f5.li3">Geen dataverzameling</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1496,14 +1548,14 @@
       <div class="feature-row">
         <div class="feature-content">
           <div class="feature-icon-large">🔔</div>
-          <h3>Slimme Notificaties</h3>
-          <p>Mis geen enkel moment. Krijg een melding wanneer er iets nieuws is gedeeld of wanneer iemand reageert.</p>
+          <h3 data-i18n="features.f6.title">Slimme Notificaties</h3>
+          <p data-i18n="features.f6.desc">Mis geen enkel moment. Krijg een melding wanneer er iets nieuws is gedeeld of wanneer iemand reageert.</p>
           <ul class="feature-list">
-            <li>Push notificaties voor nieuwe posts</li>
-            <li>Meldingen bij reacties en likes</li>
-            <li>Aanpasbare notificatie-instellingen</li>
+            <li data-i18n="features.f6.li1">Push notificaties voor nieuwe posts</li>
+            <li data-i18n="features.f6.li2">Meldingen bij reacties en likes</li>
+            <li data-i18n="features.f6.li3">Aanpasbare notificatie-instellingen</li>
           </ul>
-          <a href="#download" class="btn btn-primary">Download App</a>
+          <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download App</a>
         </div>
         <div class="feature-image">
           <div class="feature-phone">
@@ -1522,62 +1574,62 @@
     <div class="container">
       <div class="section-header">
         <span class="section-badge">FAQ</span>
-        <h2>Veelgestelde Vragen</h2>
-        <p>Heb je een vraag? Hier vind je de antwoorden.</p>
+        <h2 data-i18n="faq.title">Veelgestelde Vragen</h2>
+        <p data-i18n="faq.subtitle">Heb je een vraag? Hier vind je de antwoorden.</p>
       </div>
       <div class="faq-grid">
         <div class="faq-item">
           <button class="faq-question">
-            Wat is Famly?
+            <span data-i18n="faq.q1">Wat is Famly?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Famly is een privé app voor het delen van foto's en video's met je familie en vrienden. Maak groepen en nodig mensen uit - alleen zij kunnen je posts zien. Geen vreemden, geen advertenties.</p>
+            <p data-i18n="faq.a1">Famly is een privé app voor het delen van foto's en video's met je familie en vrienden. Maak groepen en nodig mensen uit - alleen zij kunnen je posts zien. Geen vreemden, geen advertenties.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            Is Famly gratis?
+            <span data-i18n="faq.q2">Is Famly gratis?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Ja, Famly is volledig gratis te gebruiken. Je kunt onbeperkt foto's en video's delen met je groepen zonder kosten.</p>
+            <p data-i18n="faq.a2">Ja, Famly is volledig gratis te gebruiken. Je kunt onbeperkt foto's en video's delen met je groepen zonder kosten.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            Hoe nodig ik mensen uit?
+            <span data-i18n="faq.q3">Hoe nodig ik mensen uit?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Je kunt mensen uitnodigen via een QR-code of door een uitnodigingslink te delen via WhatsApp, SMS of email.</p>
+            <p data-i18n="faq.a3">Je kunt mensen uitnodigen via een QR-code of door een uitnodigingslink te delen via WhatsApp, SMS of email.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            Kan ik meerdere groepen aanmaken?
+            <span data-i18n="faq.q4">Kan ik meerdere groepen aanmaken?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Ja, je kunt onbeperkt groepen aanmaken. Bijvoorbeeld één voor je directe familie, één voor schoonfamilie en één voor vrienden.</p>
+            <p data-i18n="faq.a4">Ja, je kunt onbeperkt groepen aanmaken. Bijvoorbeeld één voor je directe familie, één voor schoonfamilie en één voor vrienden.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            Is mijn data veilig?
+            <span data-i18n="faq.q5">Is mijn data veilig?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Ja, privacy staat voorop bij Famly. Je foto's en video's worden veilig opgeslagen en alleen gedeeld met de mensen die je uitnodigt.</p>
+            <p data-i18n="faq.a5">Ja, privacy staat voorop bij Famly. Je foto's en video's worden veilig opgeslagen en alleen gedeeld met de mensen die je uitnodigt.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question">
-            Op welke apparaten werkt Famly?
+            <span data-i18n="faq.q6">Op welke apparaten werkt Famly?</span>
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Famly is beschikbaar voor iPhone (iOS) en Android telefoons. Download de app gratis via de App Store of Google Play.</p>
+            <p data-i18n="faq.a6">Famly is beschikbaar voor iPhone (iOS) en Android telefoons. Download de app gratis via de App Store of Google Play.</p>
           </div>
         </div>
       </div>
@@ -1587,24 +1639,24 @@
   <!-- ==================== COMMUNITY CTA ==================== -->
   <section class="community-section">
     <div class="container">
-      <h2>Word onderdeel van de Famly community</h2>
+      <h2 data-i18n="community.title">Word onderdeel van de Famly community</h2>
       <div class="community-roles">
-        <span class="role-tag">👨‍👩‍👧‍👦 Families</span>
-        <span class="role-tag">👫 Vriendengroepen</span>
-        <span class="role-tag">👴 Grootouders</span>
-        <span class="role-tag">🌍 Expats</span>
-        <span class="role-tag">⚽ Sportclubs</span>
-        <span class="role-tag">🏠 Samengestelde gezinnen</span>
+        <span class="role-tag" data-i18n="community.tag1">👨‍👩‍👧‍👦 Families</span>
+        <span class="role-tag" data-i18n="community.tag2">👫 Vriendengroepen</span>
+        <span class="role-tag" data-i18n="community.tag3">👴 Grootouders</span>
+        <span class="role-tag" data-i18n="community.tag4">🌍 Expats</span>
+        <span class="role-tag" data-i18n="community.tag5">⚽ Sportclubs</span>
+        <span class="role-tag" data-i18n="community.tag6">🏠 Samengestelde gezinnen</span>
       </div>
-      <a href="#download" class="btn btn-primary">Download de App</a>
+      <a href="#download" class="btn btn-primary" data-i18n="community.cta">Download de App</a>
     </div>
   </section>
 
   <!-- ==================== FINAL CTA ==================== -->
   <section class="final-cta">
     <div class="container">
-      <h2>Begin vandaag met het delen van jullie mooiste momenten</h2>
-      <p>Download Famly gratis en verbind je met familie en vrienden.</p>
+      <h2 data-i18n="final.title">Begin vandaag met het delen van jullie mooiste momenten</h2>
+      <p data-i18n="final.subtitle">Download Famly gratis en verbind je met familie en vrienden.</p>
       <div class="hero-buttons">
         <a href="https://apps.apple.com/us/app/famly/id6751124006" class="store-btn" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1651,7 +1703,7 @@
             <img src="app-icon.png" alt="Famly">
             <span>Famly</span>
           </a>
-          <p>Deel bijzondere momenten met je familie en vrienden. Privé, veilig en alleen voor jullie.</p>
+          <p data-i18n="footer.desc">Deel bijzondere momenten met je familie en vrienden. Privé, veilig en alleen voor jullie.</p>
           <div class="social-links">
             <a href="#" class="social-link">📘</a>
             <a href="#" class="social-link">🐦</a>
@@ -1663,7 +1715,7 @@
           <h4>App</h4>
           <ul class="footer-links">
             <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">Hoe het werkt</a></li>
+            <li><a href="#how-it-works" data-i18n="footer.howItWorks">Hoe het werkt</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -1679,25 +1731,277 @@
           <ul class="footer-links">
             <li><a href="https://wa.me/31682579618" target="_blank" style="display: inline-flex; align-items: center; gap: 8px;">💬 WhatsApp</a></li>
           </ul>
-          <h4 style="margin-top: 24px;">Nieuwsbrief</h4>
+          <h4 style="margin-top: 24px;" data-i18n="footer.newsletter">Nieuwsbrief</h4>
           <form class="newsletter-form" onsubmit="return false;">
-            <input type="email" placeholder="Je email">
+            <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="Je email">
             <button type="submit">→</button>
           </form>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Famly. Alle rechten voorbehouden.</p>
+        <p data-i18n="footer.copyright">© 2026 Famly. Alle rechten voorbehouden.</p>
         <div class="footer-bottom-links">
           <a href="/privacy">Privacy</a>
-          <a href="/privacy">Voorwaarden</a>
+          <a href="/privacy" data-i18n="footer.terms">Voorwaarden</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- FAQ Toggle Script -->
+  <!-- ==================== SCRIPTS ==================== -->
   <script>
+    // Translations
+    const translations = {
+      nl: {
+        'nav.features': 'Features',
+        'nav.download': 'Download App',
+        'hero.badge': '✨ #1 App voor Groepen',
+        'hero.title': 'Deel <span class="gradient">Jullie Momenten</span> Op Eén Veilige Plek',
+        'hero.titleGradient': 'Jullie Momenten',
+        'hero.subtitle': 'Famly is dé app voor het delen van foto\'s en video\'s met je familie en vrienden. Maak privé groepen - veilig en alleen voor jullie, zonder reclame of vreemden.',
+        'overview.badge': 'Overzicht',
+        'overview.title': 'Waarom Famly?',
+        'overview.subtitle': 'Speciaal ontworpen voor familie en vrienden die hun mooiste momenten willen bewaren en delen.',
+        'overview.card1.title': '100% Privé',
+        'overview.card1.desc': 'Geen openbare profielen. Alleen jouw groepsleden kunnen je posts zien.',
+        'overview.card2.title': 'Makkelijk te Gebruiken',
+        'overview.card2.desc': 'Intuïtieve interface voor iedereen, van kleinkind tot grootouder.',
+        'overview.card3.title': 'Overal Toegang',
+        'overview.card3.desc': 'Beschikbaar op iOS en Android. Altijd en overal bij je herinneringen.',
+        'overview.card4.title': 'Foto\'s & Video\'s',
+        'overview.card4.desc': 'Deel media in hoge kwaliteit zonder compressie.',
+        'overview.card5.title': 'Meerdere Groepen',
+        'overview.card5.desc': 'Maak aparte groepen voor familie, vrienden of andere kringen.',
+        'overview.card6.title': 'Notificaties',
+        'overview.card6.desc': 'Mis geen enkel moment met slimme meldingen.',
+        'features.title': 'Alles wat je nodig hebt',
+        'features.subtitle': 'Krachtige functies om jullie momenten te delen en bewaren.',
+        'features.f1.title': 'Foto\'s & Video\'s Delen',
+        'features.f1.desc': 'Deel je mooiste momenten met je groep in hoge kwaliteit. Geen compressie, geen kwaliteitsverlies. Upload foto\'s en video\'s direct vanaf je camera of galerij.',
+        'features.f1.li1': 'Onbeperkt foto\'s en video\'s uploaden',
+        'features.f1.li2': 'Hoge kwaliteit behouden',
+        'features.f1.li3': 'Direct delen met je groep',
+        'features.f2.title': 'Privé Groepen',
+        'features.f2.desc': 'Maak aparte groepen voor verschillende kringen. Familie, vrienden, sportclub - iedereen krijgt zijn eigen privé ruimte.',
+        'features.f2.li1': 'Onbeperkt groepen aanmaken',
+        'features.f2.li2': 'Eenvoudig leden uitnodigen via QR of link',
+        'features.f2.li3': 'Beheer wie wat kan zien',
+        'features.f3.title': 'Reacties & Likes',
+        'features.f3.desc': 'Blijf betrokken bij elkaars leven. Reageer op posts, geef likes en blijf verbonden met je groep, ook op afstand.',
+        'features.f3.li1': 'Reageer met tekst of emoji\'s',
+        'features.f3.li2': 'Like de posts van groepsleden',
+        'features.f3.li3': 'Ontvang notificaties bij reacties',
+        'features.f4.title': 'Groepsalbum',
+        'features.f4.desc': 'Al je herinneringen automatisch georganiseerd per maand. Scroll terug in de tijd en herbeleef jullie mooiste momenten.',
+        'features.f4.li1': 'Automatisch gesorteerd op datum',
+        'features.f4.li2': 'Makkelijk zoeken en browsen',
+        'features.f4.li3': 'Nooit meer herinneringen kwijt',
+        'features.f5.title': 'Privé & Veilig',
+        'features.f5.desc': 'Jouw herinneringen zijn van jou. Geen advertenties, geen tracking, geen vreemden. Alleen jouw groep.',
+        'features.f5.li1': 'End-to-end privacy',
+        'features.f5.li2': 'Geen advertenties',
+        'features.f5.li3': 'Geen dataverzameling',
+        'features.f6.title': 'Slimme Notificaties',
+        'features.f6.desc': 'Mis geen enkel moment. Krijg een melding wanneer er iets nieuws is gedeeld of wanneer iemand reageert.',
+        'features.f6.li1': 'Push notificaties voor nieuwe posts',
+        'features.f6.li2': 'Meldingen bij reacties en likes',
+        'features.f6.li3': 'Aanpasbare notificatie-instellingen',
+        'faq.title': 'Veelgestelde Vragen',
+        'faq.subtitle': 'Heb je een vraag? Hier vind je de antwoorden.',
+        'faq.q1': 'Wat is Famly?',
+        'faq.a1': 'Famly is een privé app voor het delen van foto\'s en video\'s met je familie en vrienden. Maak groepen en nodig mensen uit - alleen zij kunnen je posts zien. Geen vreemden, geen advertenties.',
+        'faq.q2': 'Is Famly gratis?',
+        'faq.a2': 'Ja, Famly is volledig gratis te gebruiken. Je kunt onbeperkt foto\'s en video\'s delen met je groepen zonder kosten.',
+        'faq.q3': 'Hoe nodig ik mensen uit?',
+        'faq.a3': 'Je kunt mensen uitnodigen via een QR-code of door een uitnodigingslink te delen via WhatsApp, SMS of email.',
+        'faq.q4': 'Kan ik meerdere groepen aanmaken?',
+        'faq.a4': 'Ja, je kunt onbeperkt groepen aanmaken. Bijvoorbeeld één voor je directe familie, één voor schoonfamilie en één voor vrienden.',
+        'faq.q5': 'Is mijn data veilig?',
+        'faq.a5': 'Ja, privacy staat voorop bij Famly. Je foto\'s en video\'s worden veilig opgeslagen en alleen gedeeld met de mensen die je uitnodigt.',
+        'faq.q6': 'Op welke apparaten werkt Famly?',
+        'faq.a6': 'Famly is beschikbaar voor iPhone (iOS) en Android telefoons. Download de app gratis via de App Store of Google Play.',
+        'community.title': 'Word onderdeel van de Famly community',
+        'community.tag1': '👨‍👩‍👧‍👦 Families',
+        'community.tag2': '👫 Vriendengroepen',
+        'community.tag3': '👴 Grootouders',
+        'community.tag4': '🌍 Expats',
+        'community.tag5': '⚽ Sportclubs',
+        'community.tag6': '🏠 Samengestelde gezinnen',
+        'community.cta': 'Download de App',
+        'final.title': 'Begin vandaag met het delen van jullie mooiste momenten',
+        'final.subtitle': 'Download Famly gratis en verbind je met familie en vrienden.',
+        'footer.desc': 'Deel bijzondere momenten met je familie en vrienden. Privé, veilig en alleen voor jullie.',
+        'footer.howItWorks': 'Hoe het werkt',
+        'footer.newsletter': 'Nieuwsbrief',
+        'footer.emailPlaceholder': 'Je email',
+        'footer.copyright': '© 2026 Famly. Alle rechten voorbehouden.',
+        'footer.terms': 'Voorwaarden'
+      },
+      en: {
+        'nav.features': 'Features',
+        'nav.download': 'Download App',
+        'hero.badge': '✨ #1 App for Groups',
+        'hero.title': 'Share <span class="gradient">Your Moments</span> In One Safe Place',
+        'hero.titleGradient': 'Your Moments',
+        'hero.subtitle': 'Famly is the app for sharing photos and videos with your family and friends. Create private groups - safe and just for you, without ads or strangers.',
+        'overview.badge': 'Overview',
+        'overview.title': 'Why Famly?',
+        'overview.subtitle': 'Specially designed for family and friends who want to preserve and share their best moments.',
+        'overview.card1.title': '100% Private',
+        'overview.card1.desc': 'No public profiles. Only your group members can see your posts.',
+        'overview.card2.title': 'Easy to Use',
+        'overview.card2.desc': 'Intuitive interface for everyone, from grandchild to grandparent.',
+        'overview.card3.title': 'Access Anywhere',
+        'overview.card3.desc': 'Available on iOS and Android. Always access your memories.',
+        'overview.card4.title': 'Photos & Videos',
+        'overview.card4.desc': 'Share media in high quality without compression.',
+        'overview.card5.title': 'Multiple Groups',
+        'overview.card5.desc': 'Create separate groups for family, friends or other circles.',
+        'overview.card6.title': 'Notifications',
+        'overview.card6.desc': 'Never miss a moment with smart notifications.',
+        'features.title': 'Everything you need',
+        'features.subtitle': 'Powerful features to share and preserve your moments.',
+        'features.f1.title': 'Share Photos & Videos',
+        'features.f1.desc': 'Share your best moments with your group in high quality. No compression, no quality loss. Upload photos and videos directly from your camera or gallery.',
+        'features.f1.li1': 'Unlimited photo and video uploads',
+        'features.f1.li2': 'Maintain high quality',
+        'features.f1.li3': 'Share directly with your group',
+        'features.f2.title': 'Private Groups',
+        'features.f2.desc': 'Create separate groups for different circles. Family, friends, sports club - everyone gets their own private space.',
+        'features.f2.li1': 'Create unlimited groups',
+        'features.f2.li2': 'Easily invite members via QR or link',
+        'features.f2.li3': 'Control who sees what',
+        'features.f3.title': 'Comments & Likes',
+        'features.f3.desc': 'Stay involved in each other\'s lives. Comment on posts, give likes and stay connected with your group, even from a distance.',
+        'features.f3.li1': 'Comment with text or emojis',
+        'features.f3.li2': 'Like posts from group members',
+        'features.f3.li3': 'Receive notifications for comments',
+        'features.f4.title': 'Group Album',
+        'features.f4.desc': 'All your memories automatically organized by month. Scroll back in time and relive your best moments.',
+        'features.f4.li1': 'Automatically sorted by date',
+        'features.f4.li2': 'Easy to search and browse',
+        'features.f4.li3': 'Never lose memories again',
+        'features.f5.title': 'Private & Secure',
+        'features.f5.desc': 'Your memories are yours. No ads, no tracking, no strangers. Just your group.',
+        'features.f5.li1': 'End-to-end privacy',
+        'features.f5.li2': 'No advertisements',
+        'features.f5.li3': 'No data collection',
+        'features.f6.title': 'Smart Notifications',
+        'features.f6.desc': 'Never miss a moment. Get notified when something new is shared or when someone comments.',
+        'features.f6.li1': 'Push notifications for new posts',
+        'features.f6.li2': 'Notifications for comments and likes',
+        'features.f6.li3': 'Customizable notification settings',
+        'faq.title': 'Frequently Asked Questions',
+        'faq.subtitle': 'Have a question? Find the answers here.',
+        'faq.q1': 'What is Famly?',
+        'faq.a1': 'Famly is a private app for sharing photos and videos with your family and friends. Create groups and invite people - only they can see your posts. No strangers, no ads.',
+        'faq.q2': 'Is Famly free?',
+        'faq.a2': 'Yes, Famly is completely free to use. You can share unlimited photos and videos with your groups at no cost.',
+        'faq.q3': 'How do I invite people?',
+        'faq.a3': 'You can invite people via a QR code or by sharing an invitation link via WhatsApp, SMS or email.',
+        'faq.q4': 'Can I create multiple groups?',
+        'faq.a4': 'Yes, you can create unlimited groups. For example, one for your immediate family, one for in-laws and one for friends.',
+        'faq.q5': 'Is my data safe?',
+        'faq.a5': 'Yes, privacy is our priority at Famly. Your photos and videos are stored securely and only shared with people you invite.',
+        'faq.q6': 'Which devices does Famly work on?',
+        'faq.a6': 'Famly is available for iPhone (iOS) and Android phones. Download the app for free via the App Store or Google Play.',
+        'community.title': 'Join the Famly community',
+        'community.tag1': '👨‍👩‍👧‍👦 Families',
+        'community.tag2': '👫 Friend Groups',
+        'community.tag3': '👴 Grandparents',
+        'community.tag4': '🌍 Expats',
+        'community.tag5': '⚽ Sports Clubs',
+        'community.tag6': '🏠 Blended Families',
+        'community.cta': 'Download the App',
+        'final.title': 'Start sharing your best moments today',
+        'final.subtitle': 'Download Famly for free and connect with family and friends.',
+        'footer.desc': 'Share special moments with your family and friends. Private, safe and just for you.',
+        'footer.howItWorks': 'How it works',
+        'footer.newsletter': 'Newsletter',
+        'footer.emailPlaceholder': 'Your email',
+        'footer.copyright': '© 2026 Famly. All rights reserved.',
+        'footer.terms': 'Terms'
+      }
+    };
+
+    // Current language
+    let currentLang = 'nl';
+
+    // Apply translations
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      // Update page title
+      document.title = lang === 'nl'
+        ? 'Famly - Deel Momenten met Familie & Vrienden'
+        : 'Famly - Share Moments with Family & Friends';
+
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      // Save preference
+      localStorage.setItem('famly-lang', lang);
+    }
+
+    // Detect country and set language
+    async function detectCountryAndSetLanguage() {
+      // Check if user has a saved preference
+      const savedLang = localStorage.getItem('famly-lang');
+      if (savedLang) {
+        applyLanguage(savedLang);
+        return;
+      }
+
+      // Try to detect country
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        const country = data.country_code;
+
+        // Netherlands or Belgium (Dutch-speaking) = Dutch, otherwise English
+        if (country === 'NL' || country === 'BE') {
+          applyLanguage('nl');
+        } else {
+          applyLanguage('en');
+        }
+      } catch (error) {
+        // Fallback: check browser language
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang.startsWith('nl')) {
+          applyLanguage('nl');
+        } else {
+          applyLanguage('en');
+        }
+      }
+    }
+
+    // Initialize language switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang);
+      });
+    });
+
+    // FAQ toggle
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', () => {
         const item = button.parentElement;
@@ -1721,6 +2025,9 @@
         mobileMenuBtn.textContent = '☰';
       });
     });
+
+    // Initialize language detection
+    detectCountryAndSetLanguage();
   </script>
 
 </body>
